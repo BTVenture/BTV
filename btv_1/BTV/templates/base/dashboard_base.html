@@ -1,0 +1,32 @@
+
+{% load static %}
+<div class="absolute w-full h-[60px] flex justify-between items-center z-50 bg-transparent/85">
+    <a href='/'>
+        <div class="flex items-center justify-center w-auto bg-white rounded-[30px] px-2 mx-2">
+            <img src="{% static 'home_page/bird_logo.jpg' %}" class="w-[50px] h-[50px] rounded-full"/>
+            <h1 class="px-2 text-2xl font-semibold text-black">BTV</h1>
+        </div>
+    </a>
+    <div id="menu_button" onclick="toggle_menu()" class=" lg:hidden w-[40px] h-[40px] mx-2 cursor-pointer hover:cursor-pointer z-50">
+        <img src="{% static 'home_page/menu.svg' %}"/>
+    </div>
+    <div class="hidden lg:block ">
+        <ul class="flex py-2 text-2xl text-white poppins-bold">
+            <a href='/dashboard/'> <li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] "> Dashboard </li> <a/> 
+            <a href='/wallet'> <li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] "> Wallet </li> </a>
+            <a href='/recharge/recharge-history'><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Recharge History</li></a>
+            <a href='/withdraw/history'><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Withdraw History</li></a>
+            <a href='/dashboard/logout' ><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] "> Logout </li> </a>
+        </ul>
+    </div>
+</div>
+<div id="menu" class="ease-in duration-1000 h-[100vh] w-full absolute bg-black/80 flex flex-col items-center justify-center left-[-100%] z-20">
+    <ul class="py-2 text-2xl text-white poppins-bold">
+        <a href='/'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Home</li></a>
+        <a href='/wallet'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Wallet</li></a>
+        <a href='/recharge/recharge-history'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Recharge History</li></a>
+        <a href='/withdraw/history'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Withdraw History</li></a>
+        <a href='/dashboard/logout'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Logout</li></a>
+    </ul>
+</div>
+</div>

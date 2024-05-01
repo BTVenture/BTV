@@ -1,0 +1,79 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blue Trade Venture</title>
+
+    <!-- here i'm importing fonts -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .poppins-medium {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        }
+
+        .poppins-semibold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        }
+
+        .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+    </style>
+
+</head>
+<body class="flex flex-col items-center w-full h-[100vh] bg-gradient-to-b from-black to-slate-300">
+    
+    {% include "../base/dashboard_base.html" %}
+
+    <div class="w-full mt-16 overflow-auto overflow-x-hidden">
+        <!-- Your content goes here -->
+        {% for item in history %}
+            <div class="grid grid-cols-1 gap-5 p-5 m-5  md:grid-cols-2 lg:grid-cols-3 rounded-[20px] bg-white text-black">
+                <div> <p class='text-xs text-red-500 poppins-semibold'> User Name : {{ item.user_name }} </p> </div>
+                <div> <p class='text-xs text-red-500 poppins-semibold'> Email : {{ item.email }} </p> </div>
+                <div> <p class='text-xs text-red-500 poppins-semibold'> Product Name : {{ item.product_name }} </p> </div>
+                <div> <p class='text-xs text-red-500 poppins-semibold'> Comission Amount : {{ item.comission_amount }} </p> </div>
+                <div> <p class='text-xs text-red-500 poppins-semibold'> Comission Amount : {{ item.date }} </p> </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <Script>
+        var toggle = false;
+        var button = document.getElementById('menu_button');
+        var menu = document.getElementById('menu')
+
+        function toggle_menu() {
+            if (!toggle) {
+                toggle = true;
+                menu.style.left = "0";
+                document.body.style.overflow = "hidden"
+            } else {
+                toggle = false;
+                menu.style.left = "-100%";
+                document.body.style.overflow = ""
+            }
+        }
+    </Script>
+</body>
+</html>

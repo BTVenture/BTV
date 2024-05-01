@@ -1,0 +1,84 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blue Trade Venture</title>
+
+    <!-- here i'm importing fonts -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .poppins-medium {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        }
+
+        .poppins-semibold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        }
+
+        .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+    </style>
+
+</head>
+<body class="flex flex-col items-center  w-full h-[100vh] bg-gradient-to-b from-black to-slate-300">
+    
+    {% include "../base/dashboard_base.html" %}
+
+    <div class='h-full w-full md:w-[60%]  flex flex-col justify-center items-center'>
+        <div class='bg-white w-[80%] md:w-[70%] xl:w-[80%] h-[60%]  rounded-[30px] flex flex-col justify-center items-center'>
+            <div class='grid grid-cols-1 gap-5 m-5'>
+                <h1 class='my-5 text-xl text-center md:text-2xl poppins-semibold'>ADD BANK INFORMATION</h1>
+                {% if message %}
+                    <h1 class='p-2 rounded-[30px] text-center bg-red-500 text-white poppins-regular'>{{ message }}</h1>
+                {% endif %}
+                <form method='post' action='{% url "add-bank-detail" %}' >
+                    {% csrf_token %}
+                    <input name='account_number' class='w-full p-2 border border-b-black rounded-[10px]' input='text' placeholder='Account Number'  />
+                    <input name='ifsc_code' class='w-full p-2 my-5 border border-b-black rounded-[10px]' input='text' placeholder='IFSC Code'  />
+                    <input class='text-xs md:text-xl bg-black poppins-semibold rounded-[20px] px-10 py-5 mt-5 md:py-2 text-white hover:bg-red-500 hover:border hover:border-red-500' type='submit' value='Add Account'/>
+                </form>
+            </div>
+        </div>
+    </div>
+      
+
+    <Script>
+        var toggle = false;
+        var button = document.getElementById('menu_button');
+        var menu = document.getElementById('menu')
+
+        function toggle_menu() {
+            if (!toggle) {
+                toggle = true;
+                menu.style.left = "0";
+                document.body.style.overflow = "hidden"
+            } else {
+                toggle = false;
+                menu.style.left = "-100%";
+                document.body.style.overflow = ""
+            }
+        }
+    </Script>
+</body>
+</html>

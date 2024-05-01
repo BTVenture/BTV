@@ -1,0 +1,279 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blue Trade Venture</title>
+
+    <!-- here i'm importing fonts -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .poppins-medium {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        }
+
+        .poppins-semibold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        }
+
+        .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+    </style>
+
+</head>
+<body class="flex flex-col items-center justify-center">
+    <div id="hero" class="relative flex justify-center w-full h-[100vh]">
+        <div id='home' class="relative w-full h-[100vh]">
+            <img src="{% static 'home_page/background.jpg' %}" class="object-cover w-full h-full"/>
+            <div class="absolute top-0 left-0 w-full h-full bg-black/60"></div>
+            <div class="absolute top-0 left-0 h-[100vh] w-auto flex flex-col justify-center z-0 poppins-regular">
+                <div class="m-[5%] text-white ">
+                    <p class="py-3 text-xl text-red-500 poppins-bold">The project is based on trading platform .</p>
+                    <h1 class="text-5xl md:text-7xl">Welcome to Blue Trade Venture </h1>
+                    <p class="py-1 poppins-bold ">You can improve your earnings by simply connecting with your friends,
+                         relatives, and the person whom you know.</p>
+                    <a href='/auth/login'><input type="button" value="REGISTER" class="px-10 py-2 my-5 text-3xl text-black bg-white rounded-[30px]
+                        border border-black text-bold cursor-pointer hover:cursor-pointer hover:bg-red-500 hover:text-white"/></a>
+                </div>
+            </div>
+        </div>
+        <!-- This is the header of the navbar of the website -->
+        <div class="absolute w-full h-[60px] flex justify-between items-center z-50 bg-transparent/85">
+            <a href='/'>
+                <div class="flex items-center justify-center w-auto bg-white rounded-[30px] px-2 mx-2">
+                    <img src="{% static 'home_page/bird_logo.jpg' %}" class="w-[50px] h-[50px] rounded-full"/>
+                    <h1 class="px-2 text-2xl font-semibold text-black">BTV</h1>
+                </div>
+            </a>
+            <div id="menu_button" onclick="toggle_menu()" class=" lg:hidden w-[40px] h-[40px] mx-2 cursor-pointer hover:cursor-pointer">
+                <img src="{% static 'home_page/menu.svg' %}"/>
+            </div>
+            <div class="hidden lg:block ">
+                <ul class="flex py-2 text-2xl text-white poppins-bold">
+                    <a href='#home'><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Home</li></a>
+                    <a href='#about'> <li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">About</li></a>
+                    <a href='#business_plans'><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Business Plan</li></a>
+                    <a href='/auth/login'><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Login</li></a>
+                    <a href='/auth/sign-up'><li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Register</li></a>
+                    <li class="cursor-pointer hover:cursor-pointer py-2 mx-6 min-w-[120px] xl:min-w-[80px] max-w-[120px] text-xs text-center hover:text-black hover:bg-white hover:rounded-[30px] ">Contact Us</li>
+                </ul>
+            </div>
+        </div>
+        <div id="menu" class="ease-in duration-1000 h-[100vh] w-full absolute bg-black/80 flex flex-col items-center justify-center left-[-100%]">
+            <ul class="py-2 text-2xl text-white poppins-bold">
+                <a href='#home'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Home</li></a>
+                <a href='#about'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">About</li></a>
+                <a href='#business_plans' ><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Business Plan</li></a>
+                <a href='/auth/login'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Login</li></a>
+                <a href='/auth/sign-up'><li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Register</li></a>
+                <li class="py-3 px-5 text-center text-xs hover:text-black hover:bg-white hover:rounded-[30px] ">Contact Us</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- This is the feature page of the website -->
+    
+    <div id="feature_page" class="grid w-full h-full grid-cols-1 bg-gradient-to-b from-black via-black to-slate-700 md:grid-cols-2 lg:grid-cols-4 lg:h-[50%] ">
+        <h1 class="py-5 text-4xl text-center text-white poppins-regular col-span-full ">Features</h1>
+        <div class="m-[5%] p-5 bg-white rounded-[20px] hover:bg-red-500 group
+            poppins-regular overflow-hidden transition-transform duration-1000 transform hover:scale-105">
+            <h1 class="pt-1 text-xl text-black group-hover:text-white">.01</h1>
+            <h1 class="text-3xl text-black group-hover:text-white">Network Security</h1>
+        </div>
+        <div class="m-[5%] p-5 bg-white rounded-[20px] hover:bg-red-500 group
+            poppins-regular overflow-hidden transition-transform duration-1000 transform hover:scale-105">
+            <h1 class="pt-1 text-xl text-black group-hover:text-white">.02</h1>
+            <h1 class="text-3xl text-black group-hover:text-white">Data Privacy</h1>
+        </div>
+        <div class="m-[5%] p-5 bg-white rounded-[20px] hover:bg-red-500 group
+            poppins-regular overflow-hidden transition-transform duration-1000 transform hover:scale-105">
+            <h1 class="pt-1 text-xl text-black group-hover:text-white">.03</h1>
+            <h1 class="text-3xl text-black group-hover:text-white">Good Protection</h1>
+        </div>
+        <div class="m-[5%] p-5 bg-white rounded-[20px] hover:bg-red-500 group
+            poppins-regular overflow-hidden transition-transform duration-1000 transform hover:scale-105">
+            <h1 class="pt-1 text-xl text-black group-hover:text-white">.04</h1>
+            <h1 class="text-3xl text-black group-hover:text-white">Security Management</h1>
+        </div>
+    </div>
+    
+    <!-- here I'm buildind the about section of the image -->
+    <div id="about" class="h-[auto] w-full py-[30%] md:py-[10%] bg-gradient-to-b from-[#334155] to-slate-500 grid grid-cols-1
+    md:grid-cols-2">
+        
+        <div class="p-[5%] h-full w-full flex flex-col justify-center items-center">
+            <img src="{% static 'home_page/stock_market.jpg' %}"  class="rounded-[30px] object-cover bg-center" />
+        </div>
+
+        <div class="flex flex-col items-center justify-center mx-10">
+            <p class="py-2 text-xl text-red-600 md:text-2xl poppins-semibold">ABOUT OUR COMPANY</p>
+            <h1 class="py-4 text-3xl font-semibold text-white poppins-regular">Our Incredible Service Needed Around The World Corporate business</h1>
+            <p class="text-xl text-white poppins-regular">Our Incredible Service Needed Around The World Corporate business</p>
+            <div class=" transform transition-transform overflow-hidden hover:scale-105 duration-1000  w-full h-auto p-5 mt-10 border border-black/30 bg-white rounded-[20px]">
+                <img src="{% static 'home_page/about_icon_1.svg' %}"/>
+                <h1 class="py-2 text-red-500 poppins-bold">Highly Professional Members</h1>
+                <p class="poppins-regular">We Service is dedicated to serve humanity by adding resources for people in need.</p>
+            </div>
+            <div class=" transform transition-transform overflow-hidden hover:scale-105 duration-1000  w-full h-auto p-5 mt-10 border border-black/30 bg-white rounded-[20px]">
+                <img src="{% static 'home_page/about_icon_2.svg' %}" />
+                <h1 class="py-2 text-red-500 poppins-bold">Infrastructure Integration Technology</h1>
+                <p class="poppins-regular">It identifies the innate worth of all people and the value of diversity, works to ensure equal opportunity to one and all.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- here i'm creating div of my security solutions -->
+    <div class="flex flex-col items-center justify-center w-full h-auto bg-gradient-to-b from-slate-500 to-slate-400">
+        <div class="w-full">
+            <p class="text-xl text-center text-red-500 poppins-semibold">OUR SECURITY SOLUTIONS</p>
+            <h1 class="pt-5 text-4xl text-center text-black/70 poppins-regular">Our Unique, Best Services</h1>
+            <div class="px-[10%] py-6 text-center poppins-regular text-white">
+                <p>This project is based on trading platform, it's our emerging attractive project.</p>
+                <p>Through this platform we are going to create millionaires within short period.</p>
+            </div>
+        </div>
+
+        <!-- creating  cards -->
+        
+        <div class="grid w-[90%] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 my-2">
+
+            <!-- card 1 -->
+            <div class="bg-white rounded-[30px] h-auto w-auto md:ms-10 md:mb-10 lg:ms-10 lg:mb-10 my-5 transform transition-transform overflow-hidden hover:scale-105  hover:shadow-md duration-1000">
+                <img src="{% static 'home_page/about2_image1.svg' %}"  class="px-5 py-2" />
+                <h1 class="px-5 text-xl text-red-500 poppins-semibold">User Friendly</h1>
+                <p class="px-5 pb-2 text-black poppins-medium">User easily connect with our sites as well as plan. Easy to understand the process of system.</p>
+            </div>
+
+            <!-- card 2 -->
+            <div class="bg-white rounded-[30px] h-auto w-auto md:ms-10 md:mb-10 lg:ms-10 lg:mb-10 my-5 transform transition-transform overflow-hidden hover:scale-105  hover:shadow-md duration-1000">
+                <img src="{% static 'home_page/about2_image2.svg' %}" class="px-5 py-2" />
+                <h1 class="px-5 text-xl text-red-500 poppins-semibold">Business Planning</h1>
+                <p class="px-5 pb-2 text-black poppins-medium">Investment opportunities exist outside of simply speculating on the our plateform.</p>
+            </div>
+
+            <!-- card 3 -->
+            <div class="bg-white rounded-[30px] h-auto w-auto md:ms-10 md:mb-10 lg:ms-10 lg:mb-10 my-5 transform transition-transform overflow-hidden hover:scale-105  hover:shadow-md duration-1000">
+                <img src="{% static 'home_page/about2_image3.svg' %}"  class="px-5 py-2" />
+                <h1 class="px-5 text-xl text-red-500 poppins-semibold">Secure Services</h1>
+                <p class="px-5 pb-2 text-black poppins-medium">Member's data must be secured so we use latest security technique. The Best Way of Business.</p>
+            </div>
+
+            <!-- card 4 -->
+            <div class="bg-white rounded-[30px] h-auto w-auto md:ms-10 md:mb-10 lg:ms-10 lg:mb-10 my-5 transform transition-transform overflow-hidden hover:scale-105  hover:shadow-md duration-1000">
+                <img src="{% static 'home_page/about2_image4.svg' %}"  class="px-5 py-2" />
+                <h1 class="px-5 text-xl text-red-500 poppins-semibold">Transparecya</h1>
+                <p class="px-5 pb-2 text-black poppins-medium">it's quite easy and convenient provide a global platform to help learn and reading.</p>
+            </div>
+
+            <!-- card 5 -->
+            <div class="bg-white rounded-[30px] h-auto w-auto md:ms-10 md:mb-10 lg:ms-10 lg:mb-10 my-5 transform transition-transform overflow-hidden hover:scale-105  hover:shadow-md duration-1000">
+                <img src="{% static 'home_page/about2_image5.svg' %}"  class="px-5 py-2" />
+                <h1 class="px-5 text-xl text-red-500 poppins-semibold">More Creative</h1>
+                <p class="px-5 pb-2 text-black poppins-medium">Openness, honesty, respect and balance - make us diffrent and more creative from other.</p>
+            </div>
+
+            <!-- card 6 -->
+            <div class="bg-white rounded-[30px] h-auto w-auto md:ms-10 md:mb-10 lg:ms-10 lg:mb-10 my-5 transform transition-transform overflow-hidden hover:scale-105  hover:shadow-md duration-1000">
+                <img src="{% static 'home_page/about2_image6.svg' %}"  class="px-5 py-2" />
+                <h1 class="px-5 text-xl text-red-500 poppins-semibold">24/7 support</h1>
+                <p class="px-5 pb-2 text-black poppins-medium">Our company you know if you need to provide 24/7 support?.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="business_plans" class="h-[auto] w-full bg-gradient-to-b from-slate-400 to-slate-300 flex flex-col items-center py-[20%] md:py-[10%] lg:py-[6%]">
+        <div class="flex flex-col items-center justify-center w-full ">
+            <p class="text-xl text-red-500/80 poppins-semibold">More Reliable & Secure</p>
+            <h1 class="py-5 text-4xl poppins-regular">Mission And Vision</h1>
+        </div>
+        <div class="grid w-[80%] py-5 lg:w-[60%] grid-cols-1 md:grid-cols-2">
+            <div class="bg-white rounded-[30px]  m-2 p-5 transform transition-transform overflow-hiden hover:scale-105 duration-1000 ">
+                <p class="text-xl poppins-semibold text-red-500/90">Our Mission</p>
+                <h1 class="py-3 poppins-regular">OUR MISSION IS TO PROVIDE THE LIFE OF EVERY PERSON IN THE WORLD THAT THEY HAVE EVER SEEN IN THEIR DREAMS.</h1>
+            </div>
+            <div class="bg-white rounded-[30px]  m-2 p-5 transform transition-transform overflow-hiden hover:scale-105 duration-1000 ">
+                <p class="text-xl poppins-semibold text-red-500/90">Our Vision</p>
+                <h1 class="py-3 poppins-regular">VISION IS WHAT GUIDES YOU TOWARDS YOUR ASPIRATIONS AND LEADS YOU ALONG YOUR PATH TO SUCCESS.</h1>
+            </div>
+        </div>
+        <div class="grid w-[80%] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+            <div class="w-full my-10 p-4  rounded-[30px] col-span-full md:py-[5%] lg:col-span-1">
+                <p class="py-2 text-xl poppins-semibold text-red-500/90">THE PROJECT</p>
+                <h1 class="py-2 text-2xl poppins-regular">This project is based on trading platform, it's our emerging attractive project.</h1>
+                <P class="text-white poppins-regular">In this project, we are trading with advanced technology and with the expert analysts suggestions.</P>
+            </div>
+            <div class="flex flex-col items-center justify-center w-full h-full">
+                <img src="{% static 'home_page/objective_1.jpg' %}" class="rounded-[30px] p-2" />
+            </div>
+            <div class="flex flex-col items-center justify-center w-full h-full">
+                <img src="{% static 'home_page/objective_2.jpg' %}"  class="rounded-[30px] p-2" />
+            </div>
+        </div>
+    </div>
+    <div class="w-[100%] h-auto flex flex-col justify-center items-center bg-gradient-to-b from-slate-300 to-slate-200">
+        <div class="w-[90%] md:w-[80%] h-auto py-4 bg-gradient-to-r from-red-400 via-red-300 to-red-50 flex flex-col md:flex-row md:justify-between rounded-[30px]">
+            <h1 class="w-auto px-10 text-3xl text-white">The World Corporate business.</h1>
+            <input type="button" value="Get Started →" class="poppins-regular text-xl text-black bg-white border border-black/30 w-[200px] h-[50px] mx-10 my-10 md:my-0 rounded-[30px] hover:bg-red-500/85 hover:text-white" />
+        </div>
+        <div class="w-[90%] md:w-[80%] h-auto py-10 grid grid-cols-1 md:grid-cols-2">
+            <div class="py-5">
+                <p class="text-2xl poppins-semibold">Quick Links</p>
+                <ul class="py-5">
+                    <li class="py-1 cursor-pointer md:py-2 md:text-xl poppins-regular text-black/60 hover:text-white cursor ">Home</li>
+                    <li class="py-1 cursor-pointer md:py-2 md:text-xl poppins-regular text-black/60 hover:text-white cursor ">About</li>
+                    <li class="py-1 cursor-pointer md:py-2 md:text-xl poppins-regular text-black/60 hover:text-white cursor ">Plan PDF</li>
+                </ul>
+            </div>
+            <div class="py-5">
+                <p class="text-2xl poppins-semibold">Portal Links</p>
+                <ul class="py-5">
+                    <li class="py-1 cursor-pointer md:py-2 md:text-xl poppins-regular text-black/60 hover:text-white cursor ">Login</li>
+                    <li class="py-1 cursor-pointer md:py-2 md:text-xl poppins-regular text-black/60 hover:text-white cursor ">Contact Us</li>
+                    <li class="py-1 cursor-pointer md:py-2 md:text-xl poppins-regular text-black/60 hover:text-white cursor ">Portal</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex items-center justify-center w-full h-[30px] pb-[30px]">
+            <p class="text-xs poppins-regular">&copy;<b>BLUE TRADE VENTURE</b> Powered By Future Bright </p>
+        </div>
+    </div>
+    <Script>
+        var toggle = false;
+        var button = document.getElementById('menu_button');
+        var menu = document.getElementById('menu')
+
+        function toggle_menu() {
+            if (!toggle) {
+                toggle = true;
+                menu.style.left = "0";
+                document.body.style.overflow = "hidden"
+            } else {
+                toggle = false;
+                menu.style.left = "-100%";
+                document.body.style.overflow = ""
+            }
+        }
+
+    </Script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blue Trade Venture</title>
+
+    <!-- here i'm importing fonts -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .poppins-medium {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        }
+
+        .poppins-semibold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        }
+
+        .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+    </style>
+
+</head>
+<body class="flex flex-col items-center w-full h-[100vh] bg-gradient-to-b from-black to-slate-300">
+    
+    {% include "../base/dashboard_base.html" %}
+
+    <div class='flex flex-col items-center justify-center w-full h-full '>
+    
+        <div class='w-[90%] md:w-[80%] lg:w-[60%] h-auto md:h-[85%] md:mt-5 bg-white flex flex-col justify-center items-center rounded-[30px]'>
+            <p id='timer' class='text-xl md:text-3xl text-[#EB455F]' > 2:00 </p>
+            <form method='post' action="{% url 'add-payment' %}" class='py-5 m-5 md:py-10'>
+                {% csrf_token %}
+                {% if message %}
+                    <h1 class='text-xl text-center text-white bg-red-500 poppins-semibold rounded-[10px] mb-5 py-1'>{{ message }}</h1>
+                {% endif %}
+
+                <p class='text-xs md:text-xl poppins-semibold '>To recharge your account, send the recharge money to the UPI ID : </p>
+                <p class='text-xl md:text-2xl poppins-regular text-[#0079FF]'> {{admin_upi}} </p>
+                
+                <p class='pt-2 md:pt-5'>Payment Amount :</p>
+                <input type='number' name='payment_amount' class='p-2 rounded-[10px] w-full my-2 border border-b-black' placeholder='Enter Recharge Amount' />
+
+                <p class='pt-2 md:pt-5'>Enter the UPI ID that you used to initiate the payment :</p>
+                <input type='input' name='upi_id' class='p-2 rounded-[10px] w-full my-2 border border-b-black' placeholder='Enter your UPI id' />
+
+                <p class='pt-2 md:pt-5'>Enter your payment's UTR ID here :</p>
+                <input type='input' name='utr_id' class='p-2 rounded-[10px] w-full my-2 border border-b-black' placeholder="Enter payment's UTR" />
+
+                <div class='flex items-center justify-center mb-2 poppins-semibold'>
+                    <input class='px-10 py-2 mt-4 bg-black text-white border border-black hover:bg-red-500 hover:text-white rounded-[30px] hover:border hover:border-red-500' type='submit' value='Submit Application' />
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+    <Script>
+        var toggle = false;
+        var button = document.getElementById('menu_button');
+        var menu = document.getElementById('menu')
+
+        var timeRemaining = 2 * 60 * 1000;  // time remaining 
+        // Update the timer display every second
+        var timerElement = document.getElementById('timer');
+
+        function toggle_menu() {
+            if (!toggle) {
+                toggle = true;
+                menu.style.left = "0";
+                document.body.style.overflow = "hidden"
+            } else {
+                toggle = false;
+                menu.style.left = "-100%";
+                document.body.style.overflow = ""
+            }
+        }
+
+        var countdown = setInterval(function() {
+            // Calculate minutes and seconds
+            var minutes = Math.floor(timeRemaining / 60000);
+            var seconds = Math.floor((timeRemaining % 60000) / 1000);
+
+            // Display the timer
+            timerElement.textContent = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+            // Decrease time remaining
+            timeRemaining -= 1000;
+
+            // Check if the timer has reached zero
+            if (timeRemaining <= 0) {
+                // Redirect to the next website
+                window.location.href = '/wallet/';
+                
+                // Stop the countdown
+                clearInterval(countdown);
+            }
+        }, 1000);
+    </Script>
+</body>
+</html>
